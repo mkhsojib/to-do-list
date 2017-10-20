@@ -50,9 +50,11 @@ $todo->text = $request->input('text');
 $todo->body = $request->input('body');
 $todo->due = $request->input('due');
 
-
+// save
 $todo->save();
 
+
+// redirect 
 return redirect('/')->with('success', 'Todo Created !');
 
 
