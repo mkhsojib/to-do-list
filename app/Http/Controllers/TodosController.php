@@ -38,8 +38,8 @@ class TodosController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-  'text' => 'required'
-  ]);
+        'text' => 'required'
+      ]);
 
 
 //create todo
@@ -54,7 +54,7 @@ $todo->due = $request->input('due');
 $todo->save();
 
 
-// redirect 
+// redirect
 return redirect('/')->with('success', 'Todo Created !');
 
 
@@ -85,7 +85,8 @@ return redirect('/')->with('success', 'Todo Created !');
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+        return view('todos.edit')->with('todo', $todo);
     }
 
     /**
@@ -97,7 +98,19 @@ return redirect('/')->with('success', 'Todo Created !');
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $todo= Todo::find($id);
+
+      $todo->text = $request->input('text');
+      $todo->body = $request->input('body');
+      $todo->due = $request->input('due');
+
+      // save
+      $todo->save();
+
+
+      // redirect
+      return redirect('/')->with('success', 'Todo Updated !');
     }
 
     /**
