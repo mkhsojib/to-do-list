@@ -121,6 +121,10 @@ return redirect('/')->with('success', 'Todo Created !');
      */
     public function destroy($id)
     {
-        //
+        $todo= Todo::find($id);
+        $todo->delete();
+
+        // redirect
+        return redirect('/')->with('success', 'Todo Deleted !');
     }
 }
