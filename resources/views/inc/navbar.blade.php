@@ -7,11 +7,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">TodoList</a>
+        <a class="navbar-brand" href="{{ url('/') }}">TodoList</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="{{Request::is('/')? 'active' : ''}}"><a href="/">Home</a></li>
+          <li class="{{Request::is('/')? 'active' : ''}}"><a href="{{ url('/') }}">Home</a></li>
           <li class="{{Request::is('todo/create')? 'active' : ''}}"><a href="{{ url('/todo/create') }}">Create Todo</a></li>
 
         </ul>
